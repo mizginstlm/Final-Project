@@ -17,19 +17,19 @@ export function useAuth() {
                 await handleDisconnect();
             }
 
-            await connect();
+            connect();
             setAddress(address ?? "");
-            setIsConnected(isConnected);
+            setIsConnected(true);
         } catch (e) {
-            console.log("Error connecting: " + e);
+            console.log("Error connecting: ",e);
         }
     };
 
     const handleDisconnect = async () => {
         try {
-            await disconnect();
+            disconnect();
             setAddress(address ?? "");
-            setIsConnected(isConnected);
+            setIsConnected(false);
         } catch (e) {
             console.log("Error disconnecting: " + e);
         }
